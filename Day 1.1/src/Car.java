@@ -1,4 +1,3 @@
-
 public class Car 
 {
 	int maxSpeed = 100;  //whole numbers 
