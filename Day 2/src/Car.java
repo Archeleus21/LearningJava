@@ -35,6 +35,7 @@ public class Car
 		System.out.println("Is the car on: " + isTheCarOn);
 		System.out.println("Car condition: " + condition);
 		System.out.println("Name of car: " + nameOfCar);
+		System.out.println("Number of people in car: " + numberOfPeopleInCar);
 	}
 	
 	public void WreckCar()
@@ -48,27 +49,55 @@ public class Car
 		maxSpeed++;  //adds 1 to max speed
 	}
 	
+	//adds number of passenger
 	public void GetIn()
 	{
-		
+		numberOfPeopleInCar++;
 	}
 	
+	//subtracts number of passengers
 	public void GetOut()
 	{
-		
+		numberOfPeopleInCar--;
+	}
+	
+	//returns miles left of remaining gas
+	public double MilesLeftOfGas()
+	{
+		return currentFuel * mpg;
+	}
+	
+	//returns total range of miles per tank
+	public double GasRange() 
+	{
+		return maxFuel * mpg;
 	}
 	
 	public static void main(String[] args) 
 	{
 		//create instance new car
-		System.out.println("Birthday Present: ");
+		System.out.println("Birthday Present V1: ");
 		Car bdayPresent = new Car(500, 5000.45, true);  //10 is min speed parameter
 		bdayPresent.PrintVariables();
+		bdayPresent.GetIn();
+		bdayPresent.GetIn();
+		bdayPresent.GetIn();
+		System.out.println("Miles Left: " + bdayPresent.MilesLeftOfGas());
+		System.out.println("Max Miles: " + bdayPresent.GasRange());
 		
+		System.out.println("Birthday Present V2: ");
+		bdayPresent.PrintVariables();
+		
+		bdayPresent.GetOut();
+		System.out.println("Birthday Present V3: ");
+		bdayPresent.PrintVariables();
+		
+		/*
 		//create another instance of car
 		System.out.println("Christmas Present: ");
 		Car xmasPresent = new Car(550, 2000, false);
 		xmasPresent.PrintVariables();
+		*/
 		
 		/*
 		//create instance of car
@@ -88,7 +117,7 @@ public class Car
 		
 		//System.out.println("Alice's car.");
 		//aliceCar.PrintVariables();
-		 */
+		*/
 	}
 
 }
